@@ -3,7 +3,8 @@ package com.eyal.exam.DogAndCat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RestController("/cat")
+@RestController
+@RequestMapping("cat")
 public class CharacteristicsCat implements Characteristics{
     // /cat?age=1
     // /cat/age/1
