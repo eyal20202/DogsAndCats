@@ -14,7 +14,7 @@
 	<name>DogAndCat</name>
 	<description>Full-Stack Developer Position Home Assignment</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>18.0.2</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
