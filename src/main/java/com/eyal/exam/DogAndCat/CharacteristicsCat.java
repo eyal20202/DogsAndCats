@@ -1,16 +1,27 @@
 package com.eyal.exam.DogAndCat;
 
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@RestController("/cat")
 public class CharacteristicsCat implements Characteristics{
-    // /cat
+    // /cat?age=1
+    // /cat/age/1
+    @GetMapping("/age/{age}")
+    @ResponseBody
     @Override
-    public List<Animal> getAnimalByAge(String age) {
+    public List<Animal> getAnimalByAge(@PathVariable String age) {
+        System.out.println("getAnimalByAge Any Hi");
+        // Call for all Cats with Age
+        //baby, young, adult, senior Accepts multiple values, e.g. age=baby,senior
         return null;
     }
     // /dog
+    @GetMapping("/type/{type}")
+
+    @ResponseBody
     @Override
-    public List<Animal> getAnimalByType(String type) {
+    public List<Animal> getAnimalByType(@PathVariable String type) {
         return null;
     }
 }
