@@ -25,7 +25,13 @@ public class Animal implements Serializable {
         this.name = name;
     }
 
+    public Breeds getBreeds() {
+        return breeds;
+    }
 
+    public void setBreeds(Breeds breeds) {
+        this.breeds = breeds;
+    }
 
     public String getGender() {
         return gender;
