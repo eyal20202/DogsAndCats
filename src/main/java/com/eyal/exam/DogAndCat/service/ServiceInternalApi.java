@@ -39,6 +39,7 @@ public class ServiceInternalApi {
         if(null != animal && animal!=""){
             urlApi+="&age="+age;
         }
+        System.out.println("my urlApi=" + urlApi);
         return restTemplate.exchange(urlApi, HttpMethod.GET, entity, String.class).getBody();
 
         /**
