@@ -13,8 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 public class ServiceInternalApi {
-//    @Autowired
-//    RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
 
     public String runService(){
         RestTemplate rt = new RestTemplate();
@@ -24,8 +24,6 @@ public class ServiceInternalApi {
 //        String requestJson = "{\"type\":\"dog\"}";
         String body = "type=dog&age=baby";
         HttpEntity<String> entity = new HttpEntity<String>(body,headers);
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigInternalApi.class);
-        RestTemplate restTemplate = ctx.getBean(RestTemplate.class);
         if(restTemplate == null){
             System.out.println("restTemplate == null");
         }else{
