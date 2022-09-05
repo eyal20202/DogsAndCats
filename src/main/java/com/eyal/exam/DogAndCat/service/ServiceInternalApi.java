@@ -16,12 +16,18 @@ public class ServiceInternalApi {
 //    @Autowired
 //    RestTemplate restTemplate;
 
-    public String runService(){
+    private String clientID = "";
+    private String clientSecret = "";
+    private String myToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJzMDJ0YXBMRG1JeTVtVXNLTDdDdDdtTHpPYWJJOFRHbngyUTJ0WnRobEZzODg2ekN1VyIsImp0aSI6ImI4OThmMmUyNWI1NGNiNWYzOGZhYmRlN2FkZjBmMmQ3NmU0MDY0ZTRiZmVhNDliMzFmYWI0YjNhNTM5M2IyNDNkNDA1NTg0ZWZiMWY3MjU2IiwiaWF0IjoxNjYyNDAxMDc4LCJuYmYiOjE2NjI0MDEwNzgsImV4cCI6MTY2MjQwNDY3OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.iZljM-J32aKafhh1aXqyulbHyIqlybzNO3z-8KgsHSlwgQ-324X6npM6J4UEhn2_6XZyOZCr5kyumXBCkZLA7ZZ4dnm93t4C6QCUHQh45LGqyt_VVSBbcCd1_4LQyibFYMVvg8aq1yYaAcrhaG5MCv4ONEJQubvFQixcig5yoDpmqcnHyCgN4NsPPhikz8TYE7aXaDfPRDZuRBIQLHF-ytaUHh0AO02DVmjQv2v_OPjI-_qtbhfjFerHxCHoEcMCEKXB-xlK4953Dw-VfhIF0nbLS6sdomIie2X6wIZjVTBcbup9Yj9ekG3ymXnEvrGuownY5O-vzebbeplXgiNFhQ";
+    public String runService(String animal){
+        return runService(animal,"");
+    }
+    public String runService(String animal, String age){
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.setBearerAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJzMDJ0YXBMRG1JeTVtVXNLTDdDdDdtTHpPYWJJOFRHbngyUTJ0WnRobEZzODg2ekN1VyIsImp0aSI6ImI4OThmMmUyNWI1NGNiNWYzOGZhYmRlN2FkZjBmMmQ3NmU0MDY0ZTRiZmVhNDliMzFmYWI0YjNhNTM5M2IyNDNkNDA1NTg0ZWZiMWY3MjU2IiwiaWF0IjoxNjYyNDAxMDc4LCJuYmYiOjE2NjI0MDEwNzgsImV4cCI6MTY2MjQwNDY3OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.iZljM-J32aKafhh1aXqyulbHyIqlybzNO3z-8KgsHSlwgQ-324X6npM6J4UEhn2_6XZyOZCr5kyumXBCkZLA7ZZ4dnm93t4C6QCUHQh45LGqyt_VVSBbcCd1_4LQyibFYMVvg8aq1yYaAcrhaG5MCv4ONEJQubvFQixcig5yoDpmqcnHyCgN4NsPPhikz8TYE7aXaDfPRDZuRBIQLHF-ytaUHh0AO02DVmjQv2v_OPjI-_qtbhfjFerHxCHoEcMCEKXB-xlK4953Dw-VfhIF0nbLS6sdomIie2X6wIZjVTBcbup9Yj9ekG3ymXnEvrGuownY5O-vzebbeplXgiNFhQ");
-//        String requestJson = "{\"type\":\"dog\"}";
+        // call to method  valid token and if not valid call to method create token
+        headers.setBearerAuth(myToken);
         String body = "type=dog&age=baby";
         HttpEntity<String> entity = new HttpEntity<String>(body,headers);
         if(restTemplate == null){
@@ -29,8 +35,11 @@ public class ServiceInternalApi {
         }else{
             System.out.println("restTemplate != null");
         }
-        return restTemplate.exchange("https://api.petfinder.com/v2/animals?type=dog", HttpMethod.GET, entity, String.class).getBody();
-
+        String urlApi = "https://api.petfinder.com/v2/animals?type="+animal;
+        if(null != animal && animal!=""){
+            urlApi+="&age="+age;
+        }
+        return restTemplate.exchange(urlApi, HttpMethod.GET, entity, String.class).getBody();
 
         /**
          *
@@ -42,5 +51,14 @@ public class ServiceInternalApi {
          *
          */
 
+    }
+    /* ToDo */
+    public Boolean isValidToken(String token){
+        return true;
+    }
+    /* ToDo */
+    public String getToken(){
+        // Call Curl
+        return "Token";
     }
 }

@@ -1,18 +1,18 @@
 package com.eyal.exam.DogAndCat;
 
-public class Animal {
-    String	image="";
+public class Animal{
+    MyImage	primary_photo_cropped = null;
     String	name="";
     String	primaryBreed="";
     String	gender="";
     String	age=""; //not doing any math actions
 
-    public String getImage() {
-        return image;
+    public MyImage getPrimary_photo_cropped() {
+        return primary_photo_cropped;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPrimary_photo_cropped(MyImage primary_photo_cropped) {
+        this.primary_photo_cropped = primary_photo_cropped;
     }
 
     public String getName() {
