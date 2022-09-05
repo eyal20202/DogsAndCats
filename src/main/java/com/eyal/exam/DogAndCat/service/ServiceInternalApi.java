@@ -18,15 +18,15 @@ public class ServiceInternalApi {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         headers.setBearerAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJzMDJ0YXBMRG1JeTVtVXNLTDdDdDdtTHpPYWJJOFRHbngyUTJ0WnRobEZzODg2ekN1VyIsImp0aSI6IjA4YWQ0Mzc5Yzc2ZjIyNmMxZGVjZGNjN2FiMDQxMzIxZGZhNzFmMDhiZDZlZTE1M2IzZDNlNzVmNWZmMjU5OTVkZDMwYzM2MmE2MDI2ZDQwIiwiaWF0IjoxNjYyMzk0Nzg2LCJuYmYiOjE2NjIzOTQ3ODYsImV4cCI6MTY2MjM5ODM4Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.zD311u2_t8SINOMLmqUYMbP4MEf4bXZuXcIRCcHwYQ2B6S6JYWNMq89z5rH2vS7au31vAtTlusxHQfmzXFOGmFPJvaPiTfkbk2BeIhD_Yx24W_RzB-_LR9sWlQNYMZHb4XyHPKm-KtQc8XHDfZaBK4J0tEdqWq0ZuWOndrl7l6Dj3KhzTcvP6-KgQBxVuYiKk-ANLFVchYoRITiCNBJtv_8IRX-WX0e-B1dGAVY_ksFu5ludI_kR2zojd_U8tKXSCUWEgIelSLnA_5D8atQnMcZ3Z6eIcMtKyEpTB3JqVuzwJ7fgKaFqzAfKLNeDj9qpqPc-VRoy9DZp_gRlV8H6Eg");
-        String requestJson = "{\"type\":\"dog\"}";
-//        String body = "type=dog&age=baby";
-        HttpEntity<String> entity = new HttpEntity<String>(requestJson,headers);
+//        String requestJson = "{\"type\":\"dog\"}";
+        String body = "type=dog&age=baby";
+        HttpEntity<String> entity = new HttpEntity<String>(body,headers);
         if(restTemplate == null){
             System.out.println("restTemplate == null");
         }else{
             System.out.println("restTemplate != null");
         }
-        return rt.exchange("http://localhost:8080/products", HttpMethod.GET, entity, String.class).getBody();
+        return rt.exchange("https://api.petfinder.com/v2/animals?type=dog", HttpMethod.GET, entity, String.class).getBody();
 
 
         /**
