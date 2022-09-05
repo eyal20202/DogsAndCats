@@ -10,10 +10,5 @@ public class DogAndCatApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DogAndCatApplication.class, args);
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.register(ConfigInternalApi.class);
-		ctx.refresh();
-
 	}
-
 }
