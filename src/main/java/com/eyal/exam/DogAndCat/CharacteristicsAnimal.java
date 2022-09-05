@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
-//    @GetMapping("/type/{type}")
-//    @ResponseBody
-//    public Animals getAnimalByType(@PathVariable String type) {
-//        System.out.println("getAnimalByType type= " + type);
-//        String result = serviceInternalApi.runService(type);
-//        System.out.println("CharacteristicsCat java getAnimalByAge result = "+ result);
-//        Gson gson = new Gson();
-//        Animals animals = gson.fromJson(result, Animals.class);
-//        System.out.println("animal = "+ gson.toJson(animals));
-//        return animals;
-//    }
+    @GetMapping("/type/{type}")
+    @ResponseBody
+    public Animals getAnimalByType(@PathVariable String type) {
+        System.out.println("getAnimalByType type= " + type);
+        String result = serviceInternalApi.runService(type);
+        System.out.println("CharacteristicsCat java getAnimalByAge result = "+ result);
+        Gson gson = new Gson();
+        Animals animals = gson.fromJson(result, Animals.class);
+        System.out.println("animal = "+ gson.toJson(animals));
+        return animals;
+    }
     @GetMapping("/type/{type}/age/{age}")
     @ResponseBody
     public Animals getAnimalByAge(@PathVariable String age,@PathVariable String type) {
