@@ -13,11 +13,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 public class ServiceInternalApi {
-    @Autowired
-    RestTemplate restTemplate;
+//    @Autowired
+//    RestTemplate restTemplate;
 
     public String runService(){
-        RestTemplate rt = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         headers.setBearerAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJzMDJ0YXBMRG1JeTVtVXNLTDdDdDdtTHpPYWJJOFRHbngyUTJ0WnRobEZzODg2ekN1VyIsImp0aSI6IjA4YWQ0Mzc5Yzc2ZjIyNmMxZGVjZGNjN2FiMDQxMzIxZGZhNzFmMDhiZDZlZTE1M2IzZDNlNzVmNWZmMjU5OTVkZDMwYzM2MmE2MDI2ZDQwIiwiaWF0IjoxNjYyMzk0Nzg2LCJuYmYiOjE2NjIzOTQ3ODYsImV4cCI6MTY2MjM5ODM4Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.zD311u2_t8SINOMLmqUYMbP4MEf4bXZuXcIRCcHwYQ2B6S6JYWNMq89z5rH2vS7au31vAtTlusxHQfmzXFOGmFPJvaPiTfkbk2BeIhD_Yx24W_RzB-_LR9sWlQNYMZHb4XyHPKm-KtQc8XHDfZaBK4J0tEdqWq0ZuWOndrl7l6Dj3KhzTcvP6-KgQBxVuYiKk-ANLFVchYoRITiCNBJtv_8IRX-WX0e-B1dGAVY_ksFu5ludI_kR2zojd_U8tKXSCUWEgIelSLnA_5D8atQnMcZ3Z6eIcMtKyEpTB3JqVuzwJ7fgKaFqzAfKLNeDj9qpqPc-VRoy9DZp_gRlV8H6Eg");
