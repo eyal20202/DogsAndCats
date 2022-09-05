@@ -21,4 +21,17 @@ public class CharacteristicsAnimal {
         System.out.println("animal = "+ gson.toJson(animals));
         return animals;
     }
+    @GetMapping("/type/{type}/age/{age}")
+    @ResponseBody
+    public Animals getAnimalByAge(@PathVariable String age,@PathVariable String type) {
+        System.out.println("getAnimalByAge age= " + age);
+        String result = serviceInternalApi.runService(type,age);
+        System.out.println("CharacteristicsCat java getAnimalByAge result = "+ result);
+        Gson gson = new Gson();
+        Animals animals = gson.fromJson(result, Animals.class);
+        System.out.println("animal = "+ gson.toJson(animals));
+        // Call for all Cats with Age
+        //baby, young, adult, senior Accepts multiple values, e.g. age=baby,senior
+        return animals;
+    }
 }
