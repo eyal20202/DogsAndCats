@@ -16,7 +16,7 @@ public class CharacteristicsCat implements Characteristics{
         System.out.println("getAnimalByAge age= " + age);
         ServiceInternalApi serviceInternalApi = new ServiceInternalApi();
         String result = serviceInternalApi.runService();
-        System.out.println("CharacteristicsCat getAnimalByAge result = "+ result);
+        System.out.println("CharacteristicsCat javagetAnimalByAge result = "+ result);
         // Call for all Cats with Age
         //baby, young, adult, senior Accepts multiple values, e.g. age=baby,senior
         return null;
