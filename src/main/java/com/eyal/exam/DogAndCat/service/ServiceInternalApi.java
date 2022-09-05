@@ -1,6 +1,9 @@
 package com.eyal.exam.DogAndCat.service;
 
+import com.eyal.exam.DogAndCat.config.ConfigInternalApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,8 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 public class ServiceInternalApi {
-    @Autowired
-    RestTemplate restTemplate;
+//    @Autowired
+//    RestTemplate restTemplate;
 
     public String runService(){
         RestTemplate rt = new RestTemplate();
@@ -21,12 +24,14 @@ public class ServiceInternalApi {
 //        String requestJson = "{\"type\":\"dog\"}";
         String body = "type=dog&age=baby";
         HttpEntity<String> entity = new HttpEntity<String>(body,headers);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigInternalApi.class);
+        RestTemplate restTemplate = ctx.getBean(RestTemplate.class);
         if(restTemplate == null){
             System.out.println("restTemplate == null");
         }else{
             System.out.println("restTemplate != null");
         }
-        return rt.exchange("https://api.petfinder.com/v2/animals?type=dog", HttpMethod.GET, entity, String.class).getBody();
+        return restTemplate.exchange("https://api.petfinder.com/v2/animals?type=dog", HttpMethod.GET, entity, String.class).getBody();
 
 
         /**
