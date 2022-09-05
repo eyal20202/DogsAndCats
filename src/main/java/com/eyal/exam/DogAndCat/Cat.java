@@ -1,15 +1,6 @@
 package com.eyal.exam.DogAndCat;
 
 public class Cat extends Animal {
-    @Override
-    public String getPrimaryBreed() {
-        return super.getPrimaryBreed();
-    }
-
-    @Override
-    public void setPrimaryBreed(String primaryBreed) {
-        super.setPrimaryBreed(primaryBreed);
-    }
 
     @Override
     public String getAge() {
@@ -19,5 +10,12 @@ public class Cat extends Animal {
     @Override
     public void setAge(String age) {
         super.setAge(age);
+    }
+    public Breeds getBreed() {
+        return breeds;
+    }
+
+    public void setBreed(Breeds breeds) {
+        this.breeds = breeds;
     }
 }

@@ -1,9 +1,9 @@
 package com.eyal.exam.DogAndCat;
 
 public class Animal{
-    MyImage	primary_photo_cropped = null;
+    MyImage	primary_photo_cropped;
     String	name="";
-    String	primaryBreed="";
+    Breeds	breeds;
     String	gender="";
     String	age=""; //not doing any math actions
 
@@ -23,13 +23,7 @@ public class Animal{
         this.name = name;
     }
 
-    public String getPrimaryBreed() {
-        return primaryBreed;
-    }
 
-    public void setPrimaryBreed(String primaryBreed) {
-        this.primaryBreed = primaryBreed;
-    }
 
     public String getGender() {
         return gender;
