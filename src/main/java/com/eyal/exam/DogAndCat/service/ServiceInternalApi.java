@@ -36,7 +36,7 @@ public class ServiceInternalApi {
             System.out.println("restTemplate != null");
         }
         String urlApi = "https://api.petfinder.com/v2/animals?type="+animal;
-        if(null != animal && animal!=""){
+        if(null != age && age!=""){
             urlApi+="&age="+age;
         }
         System.out.println("my urlApi=" + urlApi);
