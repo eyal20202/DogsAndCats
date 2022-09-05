@@ -1,6 +1,8 @@
 package com.eyal.exam.DogAndCat;
 
-public class Animal{
+import java.io.Serializable;
+
+public class Animal implements Serializable {
     MyImage	primary_photo_cropped;
     String	name="";
     Breeds	breeds;

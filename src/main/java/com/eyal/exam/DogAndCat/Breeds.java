@@ -1,5 +1,7 @@
 package com.eyal.exam.DogAndCat;
 
-public class Breeds {
+import java.io.Serializable;
+
+public class Breeds implements Serializable {
     String primary;
 }
