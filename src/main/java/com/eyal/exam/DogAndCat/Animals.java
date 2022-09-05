@@ -1,5 +1,7 @@
 package com.eyal.exam.DogAndCat;
 
+import java.util.List;
+
 public class Animals {
-    Animal animal;
+    List<Animal> animal;
 }
