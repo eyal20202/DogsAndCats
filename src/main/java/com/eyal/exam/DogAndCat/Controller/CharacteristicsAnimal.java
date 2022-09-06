@@ -13,7 +13,7 @@ public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
     @GetMapping("/type/{type}")
     @ResponseBody
-    public ResponseEntity<Animals> getAnimalByAge(@PathVariable String type, @RequestParam(required = false) String age) {
+    public ResponseEntity<String> getAnimalByAge(@PathVariable String type, @RequestParam(required = false) String age) {
         System.out.println("getAnimalByAge age= " + age);
         String result = serviceInternalApi.runService(type,age);
         System.out.println("CharacteristicsCat java getAnimalByAge result = "+ result);
@@ -23,6 +23,6 @@ public class CharacteristicsAnimal {
         HttpHeaders httpHeaders = new HttpHeaders();
         // Call for all Cats with Age
         //baby, young, adult, senior Accepts multiple values, e.g. age=baby,senior
-        return ResponseEntity.ok().headers(httpHeaders).body(animals);
+        return ResponseEntity.ok().headers(httpHeaders).body("hello");
     }
 }
