@@ -5,6 +5,7 @@ import com.eyal.exam.DogAndCat.service.ServiceInternalApi;
 import com.google.gson.Gson;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
     @GetMapping("/type/{type}")
-    public String getAnimalByAge(@PathVariable String type, @RequestParam(required = false) String age) {
+    public ResponseEntity<String> getAnimalByAge(@PathVariable String type, @RequestParam(required = false) String age) {
         System.out.println("getAnimalByAge age= " + age);
         String result = serviceInternalApi.runService(type,age);
         System.out.println("CharacteristicsCat java getAnimalByAge result = "+ result);
@@ -22,7 +23,8 @@ public class CharacteristicsAnimal {
         HttpHeaders httpHeaders = new HttpHeaders();
         // Call for all Cats with Age
         //baby, young, adult, senior Accepts multiple values, e.g. age=baby,senior
-        return "hell";
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<String>("{\"test\": \"Hello with ResponseEntity\"}", httpHeaders, HttpStatus.OK);
 //        return ResponseEntity.ok().headers(httpHeaders).body("hello");
     }
 }
