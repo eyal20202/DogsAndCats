@@ -27,4 +27,9 @@ public class CharacteristicsAnimal {
         return new ResponseEntity<String>("{\"test\": \"Hello with ResponseEntity\"}", httpHeaders, HttpStatus.OK);
 //        return ResponseEntity.ok().headers(httpHeaders).body("hello");
     }
+    @PostMapping("/hey")
+    public ResponseEntity<String> hey(){
+        HttpHeaders httpHeaders = new HttpHeaders();
+        return new ResponseEntity<String>("{\"test\": \"Hello with ResponseEntity\"}", httpHeaders, HttpStatus.OK);
+    }
 }
