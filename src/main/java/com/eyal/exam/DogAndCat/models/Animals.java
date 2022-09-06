@@ -1,4 +1,6 @@
-package com.eyal.exam.DogAndCat;
+package com.eyal.exam.DogAndCat.models;
+
+import com.eyal.exam.DogAndCat.models.Animal;
 
 import java.io.Serializable;
 import java.util.List;

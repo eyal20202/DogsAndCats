@@ -1,11 +1,10 @@
-package com.eyal.exam.DogAndCat;
+package com.eyal.exam.DogAndCat.Controller;
 
+import com.eyal.exam.DogAndCat.models.Animals;
 import com.eyal.exam.DogAndCat.service.ServiceInternalApi;
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Type;
-import java.util.List;
 @RestController
 @RequestMapping("cat")
 public class CharacteristicsCat implements Characteristics{

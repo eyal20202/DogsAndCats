@@ -1,11 +1,11 @@
-package com.eyal.exam.DogAndCat;
+package com.eyal.exam.DogAndCat.models;
 
 import java.io.Serializable;
 
 public class Animal implements Serializable {
-    MyImage	primary_photo_cropped;
+    MyImage primary_photo_cropped;
     String	name="";
-    Breeds	breeds;
+    Breeds breeds;
     String	gender="";
     String	age=""; //not doing any math actions
 

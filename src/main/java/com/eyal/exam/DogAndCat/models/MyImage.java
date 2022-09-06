@@ -1,4 +1,4 @@
-package com.eyal.exam.DogAndCat;
+package com.eyal.exam.DogAndCat.models;
 
 public class MyImage {
     String medium;
