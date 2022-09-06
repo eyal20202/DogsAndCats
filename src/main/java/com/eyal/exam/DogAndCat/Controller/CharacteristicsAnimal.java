@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
     @GetMapping("/type/{type}")
-    @ResponseBody
     public ResponseEntity<String> getAnimalByAge(@PathVariable String type, @RequestParam(required = false) String age) {
         System.out.println("getAnimalByAge age= " + age);
         String result = serviceInternalApi.runService(type,age);
