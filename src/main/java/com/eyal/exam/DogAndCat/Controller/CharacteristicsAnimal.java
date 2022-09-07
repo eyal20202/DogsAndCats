@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin(origins = "http://77.137.72.202:3000")
 public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
     @GetMapping("/type/{type}")
