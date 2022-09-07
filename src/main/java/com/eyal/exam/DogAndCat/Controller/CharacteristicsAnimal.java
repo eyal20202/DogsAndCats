@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-
 public class CharacteristicsAnimal {
     ServiceInternalApi serviceInternalApi = new ServiceInternalApi();// BaseURL
     @CrossOrigin(origins = "*")
